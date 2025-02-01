@@ -23,6 +23,7 @@ const { getPost, updatePost } = usePostsStore();
 const post = ref(null);
 
 onMounted(async () => {
+  errors.value = {};
   post.value = await getPost(route.params.id);
   if (post.value.user_id !== user.value.id) {
     router.push({ name: "home" });
